@@ -1,13 +1,13 @@
-version: '3'
-
 services:
   nextcloud:
     image: nextcloud:latest
     container_name: nextcloud
     ports:
       - 8080:80
+    restart: unless-stopped  # Avvio automatico dopo il riavvio
     volumes:
       - nextcloud_data:/var/www/html
+      - /mnt/my_ssd:/mnt/my_ssd
     environment:
       - MYSQL_HOST=db
       - MYSQL_DATABASE=nextcloud
@@ -19,6 +19,7 @@ services:
   db:
     image: mariadb
     container_name: mariadb
+    restart: unless-stopped  # Avvio automatico dopo il riavvio
     environment:
       - MYSQL_ROOT_PASSWORD=root_password
       - MYSQL_DATABASE=nextcloud
