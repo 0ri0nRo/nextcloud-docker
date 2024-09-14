@@ -171,7 +171,7 @@ If you want to secure your Nextcloud installation with SSL using Let's Encrypt, 
 2. Start all containers:
 
     ```sh
-    docker-compose up -d
+    docker-compose up -d --build
     ```
 
 3. Access Nginx Proxy Manager at `http://<your-raspberry-pi-ip>:81` and log in with the default credentials.
