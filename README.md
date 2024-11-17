@@ -81,16 +81,19 @@ This repository provides the steps to install and configure Nextcloud on a Raspb
     - Replace `secret_password` and `root_password` with secure passwords.
 
 ## Step 3: Start the Containers
-
-1. Start the Nextcloud and MariaDB containers using Docker Compose:
+1. Set permissions so everyone can read and write to the mounted partition: 
+    ```sh
+    sudo chmod -R 777 /mnt/nextcloud
+    ```
+3. Start the Nextcloud and MariaDB containers using Docker Compose:
 
     ```sh
     docker-compose up -d
     ```
 
-2. Verify that the containers are running:
+4. Verify that the containers are running:
 
-    ```sh
+    ```sh    
     docker ps
     ```
 
